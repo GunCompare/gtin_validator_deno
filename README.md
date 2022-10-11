@@ -15,7 +15,7 @@ import {
   calculateCheckDigitForGTIN,
   generateRandomGTIN,
   generateArrayOfRandomGTINs,
-} from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+} from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 ```
 
 ## Examples
