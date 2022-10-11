@@ -25,7 +25,7 @@ import {
 Returns true if the provided productCode is a valid GTIN (valid length and check digit). On invalid productCodes, returns false by default or throws an error if "error" is passed as the second parameter.
 
 ```javascript
-import { isValidGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { isValidGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 isValidGTIN("078000053401") //returns true
 isValidGTIN("078000053401", "boolean") //returns true
@@ -49,7 +49,7 @@ isValidGTIN("00012345678905") //returns true
 Returns true if the provided productCode is a valid GTIN and has a valid check digit. If the check digit is invalid, returns false by default or throws an error if "error" is passed as the second parameter.
 
 ```javascript
-import { isValidCheckDigitOnGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { isValidCheckDigitOnGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 isValidCheckDigitOnGTIN("078000053401") //returns true
 isValidCheckDigitOnGTIN("078000053401", "boolean") //returns true
@@ -74,7 +74,7 @@ Returns true if the provided productCode is a length for a GTIN (a 8, 12, 13, or
 This function does NOT check that a productCode has a valid check digit.
 
 ```javascript
-import { isValidStringLengthForGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { isValidStringLengthForGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 isValidStringLengthForGTIN("45664") //returns false
 isValidStringLengthForGTIN("45664", "boolean") //returns false
@@ -93,7 +93,7 @@ isValidStringLengthForGTIN(722510035005) //throws error "Invalid GTIN: The provi
 Removes leading zeros on valid 13 or 14 digit long GTIN's, returning a shorter valid GTIN if possible. Throws an error if the the provided productCode is not a valid GTIN. Only a valid GTIN with a length of 12-14 digits is acceptable to pass as a productCode param.
 
 ```javascript
-import { removeGTINLeadingZerosToUpcOrGTIN13 } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { removeGTINLeadingZerosToUpcOrGTIN13 } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 removeGTINLeadingZerosToUpcOrGTIN13("00000012341238") //returns "000012341238"
 removeGTINLeadingZerosToUpcOrGTIN13("0000012341238") //returns "000012341238"
@@ -118,7 +118,7 @@ removeGTINLeadingZerosToUpcOrGTIN13("84645456") //throws error "Invalid productC
 Returns the GTIN format ("GTIN-8" | "GTIN-12" | "GTIN-13" | "GTIN-14") of the provided productCode or throws an error on an invalid GTIN.
 
 ```javascript
-import { getFormatOfGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { getFormatOfGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 getFormatOfGTIN("722510035005") //returns "GTIN-12"
 getFormatOfGTIN("5901234123457") //returns "GTIN-13"
@@ -136,7 +136,7 @@ getFormatOfGTIN("00012345678906") //throws error: "Invalid GTIN: GTIN check digi
 Returns the GTIN format ("GTIN-8" | "GTIN-12" | "GTIN-13" | "GTIN-14") of the provided productCode after removing its unnecessary leading zeros (runs removeGTINLeadingZerosToUpcOrGTIN13(productCode) before getting the productCode's format). Throws an error on an invalid GTIN.
 
 ```javascript
-import { getFormatOfMinifiedGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { getFormatOfMinifiedGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 getFormatOfMinifiedGTIN("722510035005") // returns "GTIN-12"
 getFormatOfMinifiedGTIN("0722510035005") // returns "GTIN-12"
@@ -155,7 +155,7 @@ getFormatOfGTIN(84658555) //throws error: "Invalid GTIN: The provided productCod
 Calculates check digit for GTIN strings of digits 7 or 11-13 characters long. Valid productCodeWithoutCheckDigit params are string of digits 7 or 11-13 characters long.
 
 ```javascript
-import { calculateCheckDigitForGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { calculateCheckDigitForGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 calculateCheckDigitForGTIN("72251003500") //returns "5"
 calculateCheckDigitForGTIN("590123412345") //returns "7"
@@ -177,7 +177,7 @@ calculateCheckDigitForGTIN(123456789012) //throws Error: "Invalid GTIN: The prov
 Generates a random GTIN string, including a valid check digit of the type provided in gtinType param ("GTIN-8" | "GTIN-12" | "GTIN-13" | "GTIN-14").
 
 ```javascript
-import { generateRandomGTIN } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { generateRandomGTIN } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 generateRandomGTIN("GTIN-8") // returns random 8 character long GTIN with a valid check digit, random example: "12341238"
 generateRandomGTIN("GTIN-12") // returns random 12 character long GTIN with a valid check digit, random example: "722510035005"
@@ -198,7 +198,7 @@ Use "numberOfGTINsToGenerate" param to determine how many GTINs to generate.
 By default, the guaranteeOnlyUniqueGTINs param is false, meaning the returned array of GTINs can contain duplicate GTINs. Pass true to guarantee each GTIN is unique, however, keep in mind this can dramatically increase the time it takes to generate the GTINs.
 
 ```javascript
-import { generateArrayOfRandomGTINs } from "https://deno.land/x/gtin_validator_deno@0.0.2/mod.ts"
+import { generateArrayOfRandomGTINs } from "https://deno.land/x/gtin_validator_deno@1.0.0/mod.ts"
 
 generateArrayOfRandomGTINs("Any Valid GTIN", 1234) // returns an array of 1234 GTINs of potentially varying GTIN types. Possibly contains duplicates.
 generateArrayOfRandomGTINs("Any Valid GTIN", 1234, false) // returns an array of 1234 GTINs of potentially varying GTIN types. Possibly contains duplicates.
