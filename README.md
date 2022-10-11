@@ -206,4 +206,3 @@ generateArrayOfRandomGTINs("GTIN-13", 123456, true) // returns an array of 123,4
 ```
 
 This package was created and is maintained by the team at [GunCompare](https://guncompare.com/).
-"# gtin_validator_deno"
